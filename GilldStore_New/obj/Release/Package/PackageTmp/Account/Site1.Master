@@ -1,0 +1,230 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="GilldStore_New.Account.Site1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+       <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title><%= Application["COMPANY_NAME"] %></title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" runat="server">
+    <link href="~/Account/css/font-awesome/css/font-awesome.css" rel="stylesheet" runat="server" />
+
+    <link href="~/Account/css/style.css" rel="stylesheet" runat="server">
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <div id="wrapper">
+            <nav class="navbar-default navbar-static-side" role="navigation">
+                <div class="sidebar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="nav-header">
+                            <div class="dropdown profile-element">                                 
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="~/Account" runat="server">
+                                    <span class="clear"> 
+                                        <span class="block m-t-xs"> 
+                                            <strong class="font-bold"><%: Context.User.Identity.Name  %></strong>
+                                        </span>                                         
+                                    </span> 
+                                </a>                               
+                            </div>                            
+                        </li>
+                        <li class="active">
+                            <a href="dashboard.aspx"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard</span></a>                                                        
+                        </li>
+                        <li>
+                            <a href="create_user.aspx"><i class="fa fa-users"></i> <span class="nav-label">Customers</span></a>                                                        
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="ManageCustomer.aspx">New Customer<span class="fa arrow"></span></a>
+                                </li>
+                                <li>
+                                    <a href="CustomerView.aspx">Search Customer<span class="fa arrow"></span></a>
+                                </li>
+                                <li>
+                                    <a href="CustomerView.aspx?type=1">List Customers<span class="fa arrow"></span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Orders</span></a>                                                        
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="orders.aspx?type=1">Open Orders<span class="fa arrow"></span></a>
+                                </li>
+                                <li>
+                                    <a href="orders.aspx?type=3">Shipped Orders<span class="fa arrow"></span></a>
+                                </li>
+                                <li>
+                                    <a href="orders.aspx?type=2">Cancelled Orders<span class="fa arrow"></span></a>
+                                </li>                                
+                                <li>
+                                    <a href="orders.aspx?type=4">Pending Refunds<span class="fa arrow"></span></a>
+                                </li>
+                                <li>
+                                    <a href="orders.aspx?type=5">Failed Orders<span class="fa arrow"></span></a>
+                                </li>                                
+                                <li>
+                                    <a href="orders.aspx?type=7">Closed Orders<span class="fa arrow"></span></a>
+                                </li>
+                                <li>
+                                    <a href="searchorder.aspx">Search Order<span class="fa arrow"></span></a>
+                                </li>                                
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="DueList.aspx"><i class="fa fa-list-ol"></i><span class="nav-label">Due List</span></a>
+                        </li>
+                        <li>
+                            <a href="create_user.aspx"><i class="fa fa-rupee"></i> <span class="nav-label">Payments</span></a>                                                        
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">Create Payment<span class="fa arrow"></span></a>
+                                </li>
+                                <li>
+                                    <a href="#">Search Payment<span class="fa arrow"></span></a>
+                                </li>                                
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-cog"></i> <span class="nav-label">Setup</span></a>                                                        
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="Products.aspx">Products<span class="fa arrow"></span></a>
+                                </li>   
+                                <li>
+                                    <a href="Gallery.aspx">Gallery<span class="fa arrow"></span></a>
+                                </li>
+                                <li>
+                                    <a href="Templates.aspx">Templates<span class="fa arrow"></span></a>
+                                </li> 
+                            </ul>
+                        </li>
+                    </ul>
+                </div>  
+            </nav>        
+            <div id="page-wrapper" class="gray-bg dashbard-1">
+                <div class="row border-bottom">
+                    <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                        <div class="navbar-header">
+                            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>                            
+                        </div>
+                         <ul class="nav navbar-top-links navbar-right">
+                            <li>
+                                <span class="m-r-sm text-muted welcome-message">Welcome</span>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-messages">
+                                    <li>
+                                        <div class="dropdown-messages-box">
+                                            <a href="profile.html" class="pull-left">
+                                                <img alt="image" class="img-circle" src="img/a7.jpg">
+                                            </a>
+                                            <div class="media-body">
+                                                <small class="pull-right">46h ago</small>
+                                                <strong>Mike Loreipsum</strong> started following <strong>Monica Smith</strong>. <br>
+                                                <small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <div class="dropdown-messages-box">
+                                            <a href="profile.html" class="pull-left">
+                                                <img alt="image" class="img-circle" src="img/a4.jpg">
+                                            </a>
+                                            <div class="media-body ">
+                                                <small class="pull-right text-navy">5h ago</small>
+                                                <strong>Chris Johnatan Overtunk</strong> started following <strong>Monica Smith</strong>. <br>
+                                                <small class="text-muted">Yesterday 1:21 pm - 11.06.2014</small>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <div class="dropdown-messages-box">
+                                            <a href="profile.html" class="pull-left">
+                                                <img alt="image" class="img-circle" src="img/profile.jpg">
+                                            </a>
+                                            <div class="media-body ">
+                                                <small class="pull-right">23h ago</small>
+                                                <strong>Monica Smith</strong> love <strong>Kim Smith</strong>. <br>
+                                                <small class="text-muted">2 days ago at 2:30 am - 11.06.2014</small>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <div class="text-center link-block">
+                                            <a href="mailbox.html">
+                                                <i class="fa fa-envelope"></i> <strong>Read All Messages</strong>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-alerts">
+                                    <li>
+                                        <a href="mailbox.html">
+                                            <div>
+                                                <i class="fa fa-envelope fa-fw"></i> You have 16 messages
+                                                <span class="pull-right text-muted small">4 minutes ago</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="profile.html">
+                                            <div>
+                                                <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                                <span class="pull-right text-muted small">12 minutes ago</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="grid_options.html">
+                                            <div>
+                                                <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                                <span class="pull-right text-muted small">4 minutes ago</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <div class="text-center link-block">
+                                            <a href="notifications.html">
+                                                <strong>See All Alerts</strong>
+                                                <i class="fa fa-angle-right"></i>
+                                            </a>
+                                        </div>  
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="~/Logout.aspx" runat="server">
+                                    <i class="fa fa-sign-out"></i> Log out
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="row  border-bottom white-bg dashboard-header">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">        
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
